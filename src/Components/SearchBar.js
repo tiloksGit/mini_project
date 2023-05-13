@@ -1,17 +1,12 @@
+import "../styles/searchBar.css";
+
 const SearchBar = () => {
   return (
-    <>
+    <div className="search-bar">
       <label htmlFor="search"></label>
-      <input
-        type="text"
-        className="search"
-        placeholder="search"
-        style={{
-          margin: "20px",
-        }}
-      />
-      <button> search </button>
-    </>
+      <input type="text" className="search" placeholder="search" />
+      <button> Search </button>
+    </div>
   );
 };
 

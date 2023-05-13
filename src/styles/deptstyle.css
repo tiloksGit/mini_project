@@ -1,0 +1,15 @@
+.cse1-page h1 {
+  text-align: center;
+}
+
+.book-container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.book-container > * {
+  flex-basis: 40%;
+}

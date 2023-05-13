@@ -1,0 +1,38 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-parent form {
+  padding-inline: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form-parent form input {
+  padding: 8px 5px;
+}
+
+.login-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: rgb(40, 108, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.signup-btn {
+  margin-top: 20px;
+  margin-inline: auto;
+}
+
+.signup-btn button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: rgb(40, 108, 255);
+  color: white;
+  cursor: pointer;
+}

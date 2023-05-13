@@ -1,0 +1,30 @@
+.book {
+  margin-top: 20px;
+  width: 40%;
+  height: 40vh;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: -5px 5px 12px 0px rgba(88, 31, 31, 0.692);
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(209, 191, 164, 0.384);
+  transition: transform 0.1s ease-in-out; /* add transition property */
+  gap: 10px;
+}
+
+.book:hover {
+  transform: scale(1.05); /* increase scale on hover */
+}
+.book li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.book button {
+  padding: 8px 12px;
+  cursor: pointer;
+}

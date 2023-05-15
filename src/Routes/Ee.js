@@ -6,7 +6,7 @@ import Book from "../Components/Book";
 import "../styles/book.css";
 
 const Ee = () => {
-  const [book, setBooks] = useState([]);
+  const [book, setBook] = useState([]);
 
   useEffect(() => {
     const getAllBooks = async () => {
@@ -20,10 +20,8 @@ const Ee = () => {
 
         const data = await response.json();
 
-        console.log(data);
         if (response.ok) {
-          setBooks(data.books);
-          console.log(book);
+          setBook(data.books);
         }
       } catch (error) {
         alert(error);

@@ -8,6 +8,7 @@ const AuthenticateUser = (props) => {
           <label htmlFor="userName">Username: </label>
           <input
             id="userName"
+            type="file"
             placeholder="Username"
             required
             onChange={(e) => props.setName(e.target.value)}

@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 
 import "../styles/navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
       <div className="searchbar-container">
         <SearchBar />
       </div>
+      <Link to="/profile">My Profile</Link>
     </nav>
   );
 };

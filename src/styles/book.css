@@ -3,8 +3,8 @@
   width: 40%;
   height: 40vh;
   border: 2px solid black;
-  border-radius: 10px;
-  box-shadow: -5px 5px 12px 0px rgba(88, 31, 31, 0.692);
+  border-radius: 5px;
+  box-shadow: 0px 1px 7px 0px rgb(107 141 141 / 78%);
   text-align: center;
   padding: 10px;
   display: flex;

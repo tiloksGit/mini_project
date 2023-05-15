@@ -10,9 +10,7 @@ import Navbar from "./Navbar";
 const Layout = () => {
   const [name, setName] = useState("");
   const [passwd, setPasswd] = useState("");
-  useEffect(() => {
-    console.log(name, passwd);
-  }, [name, passwd]);
+  useEffect(() => {}, [name, passwd]);
   return (
     <>
       {" "}

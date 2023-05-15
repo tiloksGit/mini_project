@@ -1,0 +1,33 @@
+07-05-23	13:30:52	1decda8f-0e4d-4710-a5e5-ce2cfafdf66f	Error: Not allowed by cors	OPTIONSd	https://www.redhat.com
+07-05-23	13:30:52	1525e00d-2f44-4705-819d-09a22251e43e	Error: Not allowed by cors	GETd	https://www.redhat.com
+09-05-23	23:05:12	7057eaf6-9a65-46d3-96b7-5ea903b1e9d3	ReferenceError: ACL is not defined	GETd	undefined
+09-05-23	23:09:26	8f65e080-2a4b-4a28-b8c0-613a783936a5	ReferenceError: ACL is not defined	GETd	undefined
+09-05-23	23:12:36	1de6974c-991c-40d0-b000-3e183503af0b	ReferenceError: ACL is not defined	GETd	
+09-05-23	23:17:23	a1dd8fb6-8dc0-41c2-a4c6-ad4565743e63	ReferenceError: ACL is not defined	GET	postman
+09-05-23	23:39:39	49ca9922-e0db-4fb2-a98d-6c014d324f97	ReferenceError: passwd is not defined	POST	postman
+09-05-23	23:40:14	245f77d0-6bb2-4a41-8e3c-3c36b9517d39	ReferenceError: passwordd is not defined	POST	postman
+10-05-23	03:37:38	4c2423c0-f72c-4352-b7cf-4d4d827b2547	ObjectParameterError: Parameter "filter" to findOne() must be an object, got tilok_doley	DELETE	postman
+10-05-23	03:45:50	25a0df0a-97b5-4b82-9cee-bff4fdff85f1	ObjectParameterError: Parameter "filter" to findOne() must be an object, got 645a8c97c547e7058ac5a23a	DELETE	postman
+10-05-23	03:48:24	495705e3-f5ec-4c6a-a2bf-11939d20e7bc	TypeError: user.deleteOne is not a function	DELETE	postman
+10-05-23	05:48:34	c7223f38-0dd3-4613-a9c9-d773908e41ef	Error: Invalid select: select only takes 1 argument	GET	postman
+12-05-23	12:41:30	a62209db-6472-43fd-bddc-5853de58efc7	ValidationError: User validation failed: password: Path `password` is required., username: Path `username` is required.	POST	postman
+12-05-23	12:42:17	a7d904ae-8399-4c7b-b922-061f0a43d6a8	ValidationError: Book validation failed: uploadedBy: Path `uploadedBy` is required.	POST	postman
+12-05-23	16:32:24	b07a4629-4229-4f41-8286-07d32bdbbadb	StrictPopulateError: Cannot populate path `orderBy.userId` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	postman
+12-05-23	16:37:18	5a552584-8def-4758-87e7-d6452d04a9d2	StrictPopulateError: Cannot populate path `orderBy.userId` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	postman
+12-05-23	16:37:54	e6ab96b5-6ee6-4896-be68-657084ab4397	StrictPopulateError: Cannot populate path `orderBy.userId` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	postman
+12-05-23	16:40:23	859cca93-ce1e-47c7-aaf4-1ddcf15e3c42	StrictPopulateError: Cannot populate path `orderBy.userId` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	postman
+12-05-23	21:12:17	721663bb-a376-4c51-987c-8c9c2b35fea3	MongooseError: Model.findById() no longer accepts a callback	POST	undefined
+12-05-23	21:13:34	da07899e-ab3b-41f1-b0f7-69ce4838eb76	TypeError: Cannot read properties of undefined (reading 'push')	POST	undefined
+12-05-23	21:19:56	2a6dfbe8-1f22-46a5-bcee-97c0beab0eba	TypeError: Cannot read properties of undefined (reading 'push')	POST	undefined
+12-05-23	21:20:07	9f603a05-dee5-4ae0-89c7-a2e0308dc271	TypeError: Cannot read properties of undefined (reading 'push')	POST	undefined
+12-05-23	21:23:00	5913a923-51f5-4d07-b43f-a3e6276c94c1	TypeError: user.save is not a function	POST	undefined
+12-05-23	21:26:11	32577432-6ec3-410d-8940-de2e06e8bbb3	TypeError: user.save is not a function	POST	undefined
+12-05-23	21:40:37	49c775d2-13d2-4320-a8bc-fa7c8a5b3e66	ObjectParameterError: Parameter "filter" to findOne() must be an object, got ankita_rabha	POST	undefined
+12-05-23	23:26:17	c18e2ea7-9a97-4e21-9029-c66fda6bbaed	ValidationError: User validation failed: booksBought.0.bookId: Cast to ObjectId failed for value " 645e671434c54278f6450177" (type string) at path "bookId" because of "BSONError"	POST	undefined
+13-05-23	21:58:54	9f873389-a788-405b-ad3e-a6aca61033ef	Error: Not allowed by cors	OPTIONS	http://localhost:3000
+13-05-23	21:58:54	b51a956d-11d5-4635-b1fe-4911e8cba9ae	Error: Not allowed by cors	OPTIONS	http://localhost:3000
+14-05-23	00:59:26	8adef046-d387-4275-811b-ffb80bd21865	Error: Not allowed by cors	OPTIONS	https://admirable-sprite-e9d94d.netlify.app
+15-05-23	13:13:40	4797d776-2f21-40a1-9de1-aabe779f5a92	SyntaxError: Unexpected token o in JSON at position 1	POST	http://localhost:3000
+15-05-23	13:25:38	8fd99c53-53df-4a14-9580-a673aec2d7bc	SyntaxError: Unexpected token o in JSON at position 1	POST	http://localhost:3000
+15-05-23	13:25:38	1ef52c49-37bb-42ef-86f4-3b31e4e1a568	SyntaxError: Unexpected token o in JSON at position 1	POST	http://localhost:3000
+15-05-23	13:53:56	5007f7c8-dc8f-48bd-b96a-977eb1b7cd55	ObjectParameterError: Parameter "filter" to findOne() must be an object, got "hemtun beypi" (type string)	POST	undefined

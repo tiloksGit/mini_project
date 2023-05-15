@@ -12,4 +12,5 @@ nav {
 }
 
 .searchbar-container {
+  flex: 1;
 }

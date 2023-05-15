@@ -7,6 +7,7 @@ import Ce from "./Routes/Ce";
 import Footer from "./Components/Footer";
 import Ie from "./Routes/Ie";
 import Me from "./Routes/Me";
+import Profile from "./Routes/Profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/ce" element={<Ce />} />
           <Route path="/ie" element={<Ie />} />
           <Route path="/me" element={<Me />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
       <Footer />

@@ -2,10 +2,9 @@ import "../styles/deptstyle.css";
 
 const Me = () => {
   return (
-    <>
-      <h1>This is ME 1st semester Section</h1>
-      Welcome
-    </>
+    <div className="page">
+      <h1>Mechanical Engineering Books Section</h1>
+    </div>
   );
 };
 

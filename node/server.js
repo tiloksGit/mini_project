@@ -10,6 +10,8 @@ const corsOptions = require("./config/corsOptions");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
 const { logEvents } = require("./middleware/logger");
+const bodyParser = require("body-parser");
+
 const PORT = process.env.PORT || 9000;
 
 console.log(process.env.NODE_ENV);
@@ -17,15 +19,30 @@ connectDB();
 app.use(logger);
 
 //cross origin resource sharing
-app.use(cors(corsOptions));
 
-app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  next();
+});
+// app.use(cors({ credentials: true }));
+// app.use(cors(corsOptions));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
 app.use(cookieParser());
 
 app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/users/avatar", express.static("avatar"));
+app.use("/books/bookThumbnail", express.static("bookThumbnail"));
 
 app.use("/", require("./Routes/root"));
 app.use("/users", require("./Routes/userRoutes"));

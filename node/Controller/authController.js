@@ -1,29 +1,7 @@
-/*const bcrypt = require("bcrypt");
-const usersDB = require("../models/users.json");
-
-const handleAuth = async (req, res) => {
-  const { user, passwd } = req.body;
-  if (!user || !passwd)
-    return res.status(400).json({ message: "Incomplete information" });
-  const userExists = usersDB.find((person) => person.username === user);
-  if (!userExists) return res.status(401).json({ message: "No user Found" });
-  try {
-    const passwdTrue = await bcrypt.compare(passwd, userExists.password);
-    console.log(passwdTrue);
-    if (!passwdTrue) return res.status(401).json({ message: "No user Found" });
-    return res.status(200).json({ message: "User authenticated" });
-  } catch (err) {
-    res.status(500).json({ message: "ServerError" });
-  }
-};
-
-*/
-
-//mongodb connection
-
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 
 const handleAuth = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
@@ -33,17 +11,82 @@ const handleAuth = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: " All fields are required" });
   }
 
-  const user = await User.findOne({ username }).lean();
+  const user = await User.findOne({ username }).select("+password").lean();
+
   if (!user) {
     return res.status(400).json({ message: "No user found" });
   }
-  const correctPasswd = await bcrypt.compare(password, user.password);
+  const match = await bcrypt.compare(password, user.password);
 
-  if (!correctPasswd) {
+  console.log(match);
+  if (!match) {
     return res.status(400).json({ message: "Invalid Username or Password" });
   }
 
-  res.status(200).json({ name: user.username, books: user.books_bought });
+  const accessToken = jwt.sign(
+    {
+      UserInfo: {
+        username: user.username,
+        branch: user.branch,
+      },
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: "1d" }
+  );
+
+  const refreshToken = jwt.sign(
+    {
+      username: user.username,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: "1d" }
+  );
+
+  res.cookie("jwt", refreshToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "None",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  });
+  res.status(200).json({ accessToken, id: user._id, username: user.username });
 });
 
-module.exports = { handleAuth };
+const refresh = asyncHandler(async (req, res) => {
+  const cookies = req.cookies;
+  if (!cookies?.jwt) return res.status(401).json({ message: "unauthorized" });
+
+  const refreshToken = cookies.jwt;
+
+  jwt.verify(
+    refreshToken,
+    process.env.REFRESH_TOKEN_SECRET,
+    asyncHandler(async (err, decoded) => {
+      if (err) return err.status(403).json({ message: "forbidden" });
+      const user = await User.findOne({ username: decoded.username });
+
+      if (!user) return res.status(401).json({ message: "Unauthorized" });
+
+      const accessToken = jwt.sign(
+        {
+          UserInfo: {
+            username: user.username,
+            branch: user.branch,
+          },
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "1d" }
+      );
+
+      res.json({ accessToken });
+    })
+  );
+});
+
+const logout = asyncHandler(async (req, res) => {
+  const cookies = req.cookies;
+  if (!cookies?.jwt) return res.sendStatus(204).json("jwt cookie not found");
+  res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
+  res.json({ message: "You are logged out" });
+});
+
+module.exports = { handleAuth, refresh, logout };

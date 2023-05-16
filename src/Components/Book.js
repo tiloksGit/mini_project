@@ -1,12 +1,12 @@
 import "../styles/book.css";
 
-const Book = (props) => {
+const Book = ({ bookName, author, src }) => {
   return (
     <div className="">
-      <img src={props.imgUrl} alt={props.bookName} height="150" width="150" />
+      <img src={src} alt={bookName} height="150" width="150" />
       <ul>
-        <li>BookName: {props.bookName}</li>
-        <li>Author: {props.author}</li>
+        <li>BookName: {bookName}</li>
+        <li>Author: {author}</li>
       </ul>
       <button>Buy</button>
     </div>

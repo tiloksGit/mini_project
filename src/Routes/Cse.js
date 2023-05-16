@@ -56,16 +56,16 @@ const Cse = () => {
   ];
 
   return (
-    <div className="cse1-page">
-      <h1>This is CSE 1st semester Section</h1>
+    <div className="page">
+      <h1>Computer Science and Engineering Books Section</h1>
       <div className="book-container">
-        {books.map((book, i) => (
-          <div key={i} className="book">
+        {books.map((book) => (
+          <div key={book.id} className="book">
             <Book
               key={book.id}
               bookName={book.name}
               author={book.author}
-              imgUrl={book.imgUrl}
+              src={book.imgUrl}
             />
           </div>
         ))}

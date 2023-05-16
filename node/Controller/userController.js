@@ -10,7 +10,6 @@ const getAllUsers = asyncHandler(async (req, res) => {
     return res.status(404).json({ message: username });
   }
   const users = await User.findOne({ username }).lean();
-  console.log(users);
   if (!users) {
     return res.status(400).json({ message: "NO users found" });
   }
@@ -19,10 +18,10 @@ const getAllUsers = asyncHandler(async (req, res) => {
 
 //post
 const createNewUser = asyncHandler(async (req, res) => {
-  const { username, password, branch, avatarURL } = req.body;
+  const { username, password, branch, avatarURL, semester } = req.body;
 
   //confirm data
-  if (!username || !password || !branch) {
+  if (!username || !password || !branch || !semester) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
@@ -36,7 +35,13 @@ const createNewUser = asyncHandler(async (req, res) => {
 
   const hashedPasswd = await bcrypt.hash(password, 10);
   //Store the newUser
-  const newUser = { username, password: hashedPasswd, avatarURL, branch };
+  const newUser = {
+    username,
+    password: hashedPasswd,
+    avatarURL,
+    branch,
+    semester,
+  };
 
   //create user
   const user = await User.create(newUser);
@@ -80,12 +85,12 @@ const updateUser = asyncHandler(async (req, res) => {
 
 //delete
 const deleteUsers = asyncHandler(async (req, res) => {
-  const { id } = req.body;
-  if (!id) {
+  const { username } = req.body;
+  if (!username) {
     return res.status(400).json({ message: "User if required" });
   }
 
-  const user = await User.findById(id).exec();
+  const user = await User.findOne({ username }).exec();
 
   if (!user) {
     return res.status(409).json({ message: "User not found" });

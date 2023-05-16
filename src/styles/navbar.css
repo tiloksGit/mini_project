@@ -14,3 +14,7 @@ nav {
 .searchbar-container {
   flex: 1;
 }
+
+p {
+  padding: 10px;
+}

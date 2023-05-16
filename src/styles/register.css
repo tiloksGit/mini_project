@@ -1,0 +1,40 @@
+.register-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  flex: 1;
+}
+
+form {
+  padding-inline: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form input {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 5px;
+}
+
+.img-upload {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: rgba(78, 223, 192, 0.471);
+  color: rgb(14, 2, 2);
+  cursor: pointer;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: rgb(40, 108, 255);
+  color: white;
+  cursor: pointer;
+}

@@ -26,12 +26,7 @@ const Layout = () => {
             <Outlet />
           </main>
           <div className="right-layout">
-            <AuthenticateUser
-              name={name}
-              passwd={passwd}
-              setName={setName}
-              setPasswd={setPasswd}
-            />
+            We will have some notification in here
           </div>
         </div>
       </div>

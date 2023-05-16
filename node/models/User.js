@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    semester: {
+      type: String,
+      required: true,
+    },
     booksBought: [
       {
         bookId: {

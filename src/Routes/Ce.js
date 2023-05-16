@@ -2,10 +2,9 @@ import "../styles/deptstyle.css";
 
 const Ce = () => {
   return (
-    <>
-      <h1>This is CE 1st semester Section</h1>
-      Welcome
-    </>
+    <div className="page">
+      <h1>Civil Engineering Books Section</h1>
+    </div>
   );
 };
 

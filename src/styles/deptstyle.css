@@ -1,9 +1,20 @@
-.cse1-page h1 {
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page h4 {
+  padding: 20px;
+}
+.page h1 {
   text-align: center;
 }
 
 .book-container {
   margin-top: 50px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 40px;

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Avatar from "../Components/Avatar";
+import "../styles/profile.css";
+import LoginContext from "../LoginContext";
 
 // userId: "",
 // userName: "",
@@ -10,6 +12,7 @@ import Avatar from "../Components/Avatar";
 // semester: "",
 
 const Profile = () => {
+  const { name, accessToken } = useContext(LoginContext);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -19,8 +22,9 @@ const Profile = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
           },
-          body: JSON.stringify({ username: "hemtun beypi" }),
+          body: JSON.stringify({ username: name }),
         });
 
         if (response.ok) {
@@ -29,6 +33,7 @@ const Profile = () => {
             userId: userData._id,
             userName: userData.username,
             booksOrdered: userData.booksOrdered,
+            semester: userData.semester,
             branch: userData.branch,
             avatarURL: userData.avatarURL,
           };
@@ -42,9 +47,11 @@ const Profile = () => {
     getUserDetails();
   }, []);
 
+  const imgURL = `http://localhost:4000/users/${user.avatarURL}`;
+
   return (
     <div className="profile-container">
-      <Avatar avatarName={user.username} avatarURL={user.avatarURL} />
+      <Avatar avatarName={user.userName} avatarURL={imgURL} />
       <div className="profile-details">
         Branch: {user.branch}
         <br />

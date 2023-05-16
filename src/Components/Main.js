@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-
+import { useContext } from "react";
+import LoginContext from "../LoginContext";
 const Main = () => {
+  const { name, accessToken } = useContext(LoginContext);
+
   const [displayContent, setDisplayContent] = useState("");
   useEffect(() => {
     const getContent = async () => {
@@ -25,6 +28,7 @@ const Main = () => {
   }, []);
   return (
     <>
+      <p>Hey mr. {name}</p>
       <div dangerouslySetInnerHTML={{ __html: displayContent }} />
     </>
   );

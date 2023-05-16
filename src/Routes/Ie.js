@@ -2,10 +2,9 @@ import "../styles/deptstyle.css";
 
 const Ie = () => {
   return (
-    <>
-      <h1>This is IE 1st semester Section</h1>
-      Welcome
-    </>
+    <div className="page">
+      <h1>Instrumentation Engineering Books Section</h1>
+    </div>
   );
 };
 

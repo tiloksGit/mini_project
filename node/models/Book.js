@@ -14,12 +14,13 @@ const bookSchema = new mongoose.Schema(
     uploadedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
-    expec_price: {
+    expecPrice: {
       type: Number,
       required: false,
     },
-    img_url: {
+    imgURL: {
       type: String,
     },
     branch: {

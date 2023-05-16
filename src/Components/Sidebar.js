@@ -4,22 +4,22 @@ const Sidebar = () => {
   return (
     <div className="NavBody-parent">
       <ul>
-        <Link to="/">
+        <Link to="/exclusive/">
           <li>Home</li>
         </Link>
-        <Link to="/cse">
+        <Link to="/exclusive/cse">
           <li>Computer Science Engineering</li>
         </Link>
-        <Link to="/ee">
+        <Link to="/exclusive/ee">
           <li>Electrical Engineering</li>
         </Link>
-        <Link to="/me">
+        <Link to="/exclusive/me">
           <li>Mechanical Engineering</li>
         </Link>
-        <Link to="/ie">
+        <Link to="/exclusive/ie">
           <li>Instrumentation Engineering</li>
         </Link>
-        <Link to="/ce">
+        <Link to="/exclusive/ce">
           <li>Civil Engineering</li>
         </Link>
       </ul>

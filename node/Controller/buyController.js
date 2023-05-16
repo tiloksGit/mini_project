@@ -21,12 +21,6 @@ const buyBook = asyncHandler(async (req, res) => {
   user.booksCount = user.booksCount + 1;
   const updatedUser = await user.save();
   console.log(updatedUser);
-  //check for user availability
-  //   if(!user){
-  //     return res.status(404).json({message: "No user found"});
-  //   }
-
-  //   const updatedUser = await user.save()
 
   res.status(200).json({ books: updatedUser.booksBought });
 });

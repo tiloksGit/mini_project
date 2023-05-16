@@ -31,3 +31,53 @@
 15-05-23	13:25:38	8fd99c53-53df-4a14-9580-a673aec2d7bc	SyntaxError: Unexpected token o in JSON at position 1	POST	http://localhost:3000
 15-05-23	13:25:38	1ef52c49-37bb-42ef-86f4-3b31e4e1a568	SyntaxError: Unexpected token o in JSON at position 1	POST	http://localhost:3000
 15-05-23	13:53:56	5007f7c8-dc8f-48bd-b96a-977eb1b7cd55	ObjectParameterError: Parameter "filter" to findOne() must be an object, got "hemtun beypi" (type string)	POST	undefined
+15-05-23	20:19:33	a8837dce-c259-4533-a7b8-ca561afff890	Error: Not allowed by cors	OPTIONS	http://localhost:3001
+15-05-23	20:19:33	fb4e9855-0444-4bc9-8787-e11d32ac1708	Error: Not allowed by cors	OPTIONS	http://localhost:3001
+15-05-23	22:19:53	d6f57787-cc95-45b4-a1da-97f0de19a21b	Error: Multipart: Boundary not found	POST	http://localhost:3000
+15-05-23	22:21:42	5cfaaf4c-7be4-4243-aef2-83a6e3363951	Error: Multipart: Boundary not found	POST	http://localhost:3000
+15-05-23	23:17:45	8909c455-74d1-455b-bc4b-4344c419c626	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:20:31	7c453bdf-3527-4813-9d36-94e9157e6d7a	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:23:05	75ff864a-a22b-4c90-b59c-0e800879d65e	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:26:14	dc3d0ec4-93d9-41c1-9195-6e1afdb81d46	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:29:52	72d48ae9-5257-46a1-9766-76d4d2f9694d	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:32:36	42d37a22-a7aa-4800-b733-ce5452c9a4f4	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:35:13	53ac0adf-5f2d-4f13-888d-52a407d8d065	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:44:36	92fabd4e-e966-4689-b561-fbe2c0f3b62a	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:48:34	beb3757d-fb0e-4ed8-87af-4e9135c4af5c	Error: Unexpected end of form	POST	http://localhost:3000
+15-05-23	23:54:15	22a14b2e-3c05-4f82-916d-06c8397c70e0	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	00:05:13	0850ed97-96f3-4f88-bfa1-523862398be1	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	00:06:06	7c72ddd1-20da-4929-8d7a-f792f538b764	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	00:10:20	61eeda9a-39b5-4f7d-afe6-c3a48e881ea0	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	00:12:13	5f8edf04-ccbe-464e-9170-0cfbaa6b8ba3	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	00:14:49	f262e7b6-7440-4caf-9cd1-ff1b1cb75097	Error: Unexpected end of form	POST	undefined
+16-05-23	00:15:51	83cb3411-51e4-4c5f-b5ea-cfb2e15a3961	Error: ENOENT: no such file or directory, open '../avatar/p2.jpg'	POST	undefined
+16-05-23	00:18:01	246c71f1-6b65-4b22-b17d-d1b8d6a0ef67	Error: ENOENT: no such file or directory, open '../avatar/p1.jpg'	POST	http://localhost:3000
+16-05-23	00:18:27	906c0165-2e5d-4928-8b93-c19be080d49e	Error: ENOENT: no such file or directory, open '/avatar/p2.jpg'	POST	undefined
+16-05-23	00:31:53	b8376cf6-91f4-468d-9e07-8bf21ae325ca	ReferenceError: bcrypt is not defined	POST	http://localhost:3000
+16-05-23	00:36:22	0ec21e43-6f68-4efc-81fc-ada4eaadfb93	TypeError: Cannot read properties of undefined (reading 'path')	POST	http://localhost:3000
+16-05-23	01:00:35	1fc1e5b1-cfc8-48e8-80a1-f96141d9d2ad	ObjectParameterError: Parameter "filter" to findOne() must be an object, got "Tilok Doley" (type string)	DELETE	undefined
+16-05-23	02:11:58	2362e153-b0ab-48f5-83bd-2cdad9df738f	Error: data and hash arguments required	POST	undefined
+16-05-23	02:15:01	b92a82b0-eed5-4790-b74e-0ae5ef601134	Error: data and hash arguments required	POST	undefined
+16-05-23	02:26:26	773a57b2-7d73-4236-9b36-89fae74efcf2	TypeError: Cannot read properties of undefined (reading 'path')	POST	undefined
+16-05-23	03:52:00	207f308c-ec72-4d31-95ac-0fab910892f0	TypeError: res.status.json is not a function	POST	undefined
+16-05-23	11:06:20	459a9c9d-1a9a-44db-8e4d-8249cd6c800f	MongoServerSelectionError: getaddrinfo EAI_AGAIN ac-b22fm91-shard-00-00.3lfgqkn.mongodb.net	POST	http://localhost:3000
+16-05-23	15:54:14	487c4c7e-e372-40ae-a179-d84138a004ff	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+16-05-23	16:02:28	785d1cc9-3bd1-4581-9abd-a6b8f80fe214	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+16-05-23	16:02:29	0ac0dcf2-1b3a-45ca-8c43-88072b7440ba	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+16-05-23	16:02:29	706fe031-877d-4593-b7cb-383c8253b979	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+16-05-23	16:02:31	cd49c867-96bc-441b-a2cd-e8531ba4b9e6	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+16-05-23	21:13:55	5fde4f7a-ca86-411b-988d-321427d4a57e	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	21:15:15	3c50fa8f-d516-4e6a-9576-2a809c6c4869	Error: Unexpected end of form	POST	http://localhost:3000
+16-05-23	22:21:05	518ab044-010b-4030-b71e-09be632ef5e1	TypeError: Cannot read properties of undefined (reading 'path')	POST	http://localhost:3000
+16-05-23	23:59:15	43f2a50b-0b2c-4cf3-8d2e-734e9b4c2379	Error: ENOENT: no such file or directory, open 'bookThumnail/images.png'	POST	undefined
+17-05-23	00:00:04	0a966777-6af4-4636-83f5-b703a00d18c8	ReferenceError: imgURL is not defined	POST	undefined
+17-05-23	00:00:42	05f1760d-882c-4d90-ae34-6b3ea837b2a1	ValidationError: Book validation failed: branch: Path `branch` is required.	POST	undefined
+17-05-23	00:24:31	ca2ab75e-06bf-46bb-bfd3-57085e1c900f	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	00:29:42	bb68831f-a91e-4f81-bf3e-75645bdedc13	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	00:29:42	a164e60f-7ea2-44fd-944f-a51fba826965	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	00:33:45	ecbd155a-302a-4761-92bf-e415480a74c1	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	00:34:50	a55608a0-c1a1-43c7-b1dc-219bce1c4f94	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	00:35:16	e770f442-fa5e-4010-807b-908a805d805d	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	00:36:07	a0dc394a-69d9-4369-ac48-88392007ac33	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
+17-05-23	02:26:47	ec4ab1a4-71d2-4177-8d02-2c4772e2f149	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	02:30:51	19c21022-b5c2-454a-8227-471a4bbcf829	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000

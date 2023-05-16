@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/deptstyle.css";
-import { useEffect } from "react";
 import Book from "../Components/Book";
-
 import "../styles/book.css";
 
 const Ee = () => {
   const [book, setBook] = useState([]);
-
+  // const [available, setAvailable] = useState();
   useEffect(() => {
     const getAllBooks = async () => {
       try {
@@ -20,11 +18,14 @@ const Ee = () => {
 
         const data = await response.json();
 
-        if (response.ok) {
+        if (response.status === 200) {
           setBook(data.books);
+        } else {
+          console.log(data);
         }
       } catch (error) {
         alert(error);
+      } finally {
       }
     };
 
@@ -32,22 +33,27 @@ const Ee = () => {
   }, []);
 
   return (
-    <>
-      <h1>This is EE 1st semester Section</h1>
-      Welcome
-      <div className="book-container">
-        {book.map((book) => (
-          <div key={book._id} className="book">
-            <Book
-              key={book._id}
-              bookName={book.title}
-              author={book.author}
-              imgUrl={book.img_url}
-            />
-          </div>
-        ))}
-      </div>
-    </>
+    <div className="page">
+      <h1>Electrical Engineering Books Section</h1>
+      {book?.length ? (
+        <div className="book-container">
+          {book.map((book) => (
+            <div key={book._id} className="book">
+              <Book
+                key={book._id}
+                bookName={book.title}
+                author={book.author}
+                src={`http://localhost:4000/books/${book.imgURL}`}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="page">
+          <h4>No books available currently</h4>
+        </div>
+      )}
+    </div>
   );
 };
 

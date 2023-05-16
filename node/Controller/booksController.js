@@ -1,11 +1,10 @@
 const Book = require("../models/Book");
 const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcrypt");
-const User = require("../models/User");
+const registerController = require("../Controller/registerController");
 
 const getAllBooks = asyncHandler(async (req, res) => {
   const books = await Book.find().lean();
-  if (!books) {
+  if (!books?.length) {
     return res.status(400).json({ message: "No books found" });
   }
   res.status(200).json({ books });
@@ -30,8 +29,12 @@ const getBooks = asyncHandler(async (req, res) => {
   res.status(200).json({ books, usernames });
 });
 
-const getNewBooks = asyncHandler(async (req, res) => {
-  const { bookname, author, userId, imgURL } = req.body;
+const postNewBooks = asyncHandler(async (req, res) => {
+  const { bookname, author, userId, branch, expecPrice } = req.body;
+  let imgURL;
+  if (req.file) {
+    imgURL = req.file.path;
+  }
   //confirm data
   if (!bookname || !author || !userId) {
     return res.status(400).json({ message: " All fields are required" });
@@ -41,7 +44,9 @@ const getNewBooks = asyncHandler(async (req, res) => {
     title: bookname,
     author,
     uploadedBy: userId,
-    img_url: imgURL,
+    imgURL,
+    branch,
+    expecPrice,
   };
 
   //create user
@@ -74,4 +79,4 @@ const deleteBooks = asyncHandler(async (req, res) => {
   res.status(200).json({ message: reply });
 });
 
-module.exports = { getAllBooks, getNewBooks, deleteBooks, getBooks };
+module.exports = { getAllBooks, postNewBooks, deleteBooks, getBooks };

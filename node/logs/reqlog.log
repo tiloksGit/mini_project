@@ -5569,3 +5569,14 @@
 17-05-23	08:53:43	82c661d9-a542-43af-a56d-471bcafa8354	OPTIONS	/	http://localhost:3000
 17-05-23	08:53:43	a5d1a2b9-189d-4606-902a-148d5c5a9e8b	GET	/	http://localhost:3000
 17-05-23	08:53:45	f695fec2-f67a-490f-8afd-c515be5316a5	GET	/books/bookThumbnail/cn.pdf	undefined
+17-05-23	09:03:34	df341103-7591-4d69-91bf-2baac562dab4	GET	/books	http://localhost:3000
+17-05-23	09:03:34	bd70f843-24da-4632-947d-8e2907bf9235	GET	/books	http://localhost:3000
+17-05-23	09:04:02	62fb5beb-d0b1-4613-9295-7d20b3a823df	OPTIONS	/auth	http://localhost:3000
+17-05-23	09:04:02	7bbcbc04-0f38-4969-8bce-07373c5405b6	POST	/auth	http://localhost:3000
+17-05-23	09:04:06	20eea841-ebd5-41ce-8b94-21981757af5e	OPTIONS	/	http://localhost:3000
+17-05-23	09:04:06	41157c2c-5ce9-49ae-9b6c-bb6322d1e2d1	GET	/	http://localhost:3000
+17-05-23	09:04:06	367e0d8f-7603-41d8-874b-c7eb7f578646	GET	/	http://localhost:3000
+17-05-23	09:09:01	6b629be3-03a8-4165-873f-abc4173e94cd	GET	/books/bookThumbnail/cn.pdf	undefined
+17-05-23	09:09:01	5ef7058c-5460-4976-a7e9-a548d9064fcf	GET	/books/bookThumbnail/images%20(8).jpeg	undefined
+17-05-23	09:09:01	1516397f-6e16-4f6e-b309-265e141d2fae	GET	/books/bookThumbnail/images%20(5).jpeg	undefined
+17-05-23	09:09:01	2115d8fb-029f-4cb0-b618-23bf9ea5cad9	GET	/books/bookThumbnail/images%20(4).jpeg	undefined

@@ -10,7 +10,7 @@ const Me = () => {
 
   useEffect(() => {
     if (books?.length) {
-      const newBook = books.filter((book) => book.branch === "CSE");
+      const newBook = books.filter((book) => book.branch === "ME");
       setEeBooks(newBook);
     }
   }, [books]);

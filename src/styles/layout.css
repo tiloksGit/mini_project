@@ -20,11 +20,9 @@ body {
   margin-top: 80px;
 
   padding: 20px;
-  flex-grow: 1;
 
   flex: 1;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS devices */
   margin-left: 300px; /* Set the margin to the width of the Sidebar */
   margin-right: 300px; /* Set the margin to the width of the AuthenticateUser */
 }
@@ -37,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   top: 80px;
   bottom: 0;
   right: 0;

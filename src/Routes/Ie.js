@@ -10,7 +10,7 @@ const Ie = () => {
 
   useEffect(() => {
     if (books?.length) {
-      const newBook = books.filter((book) => book.branch === "CSE");
+      const newBook = books.filter((book) => book.branch === "IE");
       setEeBooks(newBook);
     }
   }, [books]);

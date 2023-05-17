@@ -42,3 +42,8 @@ body {
   bottom: 0;
   right: 0;
 }
+
+.right-layout iframe {
+  width: auto;
+  height: 100%;
+}

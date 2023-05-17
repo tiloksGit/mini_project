@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import SearchBar from "./SearchBar";
-
 import "../styles/navbar.css";
 import { Link } from "react-router-dom";
 import LoginContext from "../LoginContext";
@@ -12,7 +11,6 @@ const Navbar = () => {
     try {
       const response = await fetch("http://localhost:4000/auth/logout", {
         method: "POST",
-        credentials: "include",
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

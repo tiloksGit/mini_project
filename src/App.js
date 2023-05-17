@@ -12,9 +12,11 @@ import Register from "./Routes/Register";
 import AuthenticateUser from "./Components/AuthenticateUser";
 import Welcome from "./Routes/Welcome";
 import { DataProvider } from "./LoginContext";
+import Upload from "./Routes/Transaction/Upload";
+import { DataProvider1 } from "./BookContext";
 function App() {
   return (
-    <>
+    <DataProvider1>
       <DataProvider>
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -28,11 +30,12 @@ function App() {
             <Route path="ie" element={<Ie />} />
             <Route path="me" element={<Me />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="upload/new-book" element={<Upload />} />
           </Route>
         </Routes>
         <Footer />
       </DataProvider>
-    </>
+    </DataProvider1>
   );
 }
 

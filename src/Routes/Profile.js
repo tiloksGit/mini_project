@@ -18,17 +18,20 @@ const Profile = () => {
   useEffect(() => {
     const getUserDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/users/profile", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-          body: JSON.stringify({ username: name }),
-        });
+        const userResponse = await fetch(
+          "http://localhost:4000/users/profile",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessToken}`,
+            },
+            body: JSON.stringify({ username: name }),
+          }
+        );
 
-        if (response.ok) {
-          const userData = await response.json();
+        if (userResponse.ok) {
+          const userData = await userResponse.json();
           const newData = {
             userId: userData._id,
             userName: userData.username,
@@ -45,7 +48,7 @@ const Profile = () => {
     };
 
     getUserDetails();
-  }, []);
+  }, [accessToken]);
 
   const imgURL = `http://localhost:4000/users/${user.avatarURL}`;
 
@@ -57,6 +60,7 @@ const Profile = () => {
         <br />
         Semester: {user.semester}
         <br />
+        <div className="uploads-container">My uploads</div>
       </div>
     </div>
   );

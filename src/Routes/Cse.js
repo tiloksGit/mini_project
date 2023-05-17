@@ -1,75 +1,40 @@
 import Book from "../Components/Book";
-import img from "../public/p3.jpg";
 import "../styles/book.css";
 import "../styles/deptstyle.css";
+import { useContext, useEffect, useState } from "react";
+import BookContext from "../BookContext";
 
 const Cse = () => {
-  let books = [
-    {
-      id: 1,
-      name: "Compiler Design",
-      author: "Oolmen",
-      imgUrl: img,
-    },
-    {
-      id: 2,
-      name: "Computer Networks",
-      author: "Rajib",
-      imgUrl: img,
-    },
-    {
-      id: 3,
-      name: "Data Mining",
-      author: "Sk Villai",
-      imgUrl: img,
-    },
-    {
-      id: 4,
-      name: "Image Processing",
-      author: "Its me",
-      imgUrl: img,
-    },
-    {
-      id: 5,
-      name: "Software Engineering",
-      author: "RK Das",
-      imgUrl: img,
-    },
-    {
-      id: 6,
-      name: "Operating Systems",
-      author: "KL Rahul",
-      imgUrl: img,
-    },
-    {
-      id: 7,
-      name: "DAA",
-      author: "DB Singha",
-      imgUrl: img,
-    },
-    {
-      id: 8,
-      name: "DA",
-      author: "DB Singha",
-      imgUrl: img,
-    },
-  ];
+  const { books } = useContext(BookContext);
+  const [eeBooks, setEeBooks] = useState("");
 
+  useEffect(() => {
+    if (books?.length) {
+      const newBook = books.filter((book) => book.branch === "CSE");
+      setEeBooks(newBook);
+    }
+  }, [books]);
   return (
     <div className="page">
-      <h1>Computer Science and Engineering Books Section</h1>
-      <div className="book-container">
-        {books.map((book) => (
-          <div key={book.id} className="book">
-            <Book
-              key={book.id}
-              bookName={book.name}
-              author={book.author}
-              src={book.imgUrl}
-            />
-          </div>
-        ))}
-      </div>
+      <h1>Computer Science Engineering Books Section</h1>
+      {eeBooks?.length ? (
+        <div className="book-container">
+          {eeBooks.map((book) => (
+            <div key={book._id} className="book">
+              <Book
+                key={book._id}
+                bookName={book.title}
+                author={book.author}
+                src={`http://localhost:4000/books/${book.imgURL}`}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="page">
+          <h4>No books available currently</h4>
+        </div>
+      )}
     </div>
   );
 };

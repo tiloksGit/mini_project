@@ -5,7 +5,7 @@ import { useContext } from "react";
 import LoginContext from "../LoginContext";
 
 const AuthenticateUser = () => {
-  const { name, setName, passwd, setPasswd, setAccessToken } =
+  const { name, setName, passwd, setPasswd, setAccessToken, setId } =
     useContext(LoginContext);
 
   // const [name, setName] = useState("");
@@ -30,9 +30,11 @@ const AuthenticateUser = () => {
       });
 
       const responseData = await response.json();
+      console.log(responseData);
       if (response.status === 200) {
         setAccessToken(responseData.accessToken);
         setName(responseData.username);
+        setId(responseData.id);
         setMsg("Login succesful \n Redirecting to the home page...");
       } else {
         setErrMsg(

@@ -22,6 +22,9 @@ const Sidebar = () => {
         <Link to="/exclusive/ce">
           <li>Civil Engineering</li>
         </Link>
+        <Link to="/exclusive/upload/new-book">
+          <li>upload book to sell</li>
+        </Link>
       </ul>
     </div>
   );

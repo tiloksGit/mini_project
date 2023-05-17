@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import LoginContext from "../LoginContext";
+import "../styles/home.css";
 const Main = () => {
   const { name, accessToken } = useContext(LoginContext);
 
@@ -25,10 +26,10 @@ const Main = () => {
     };
 
     getContent();
-  }, []);
+  }, [accessToken]);
   return (
     <>
-      <p>Hey mr. {name}</p>
+      <p className="log-info">You are Signed In as: {name}</p>
       <div dangerouslySetInnerHTML={{ __html: displayContent }} />
     </>
   );

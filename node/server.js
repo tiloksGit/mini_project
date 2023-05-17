@@ -6,7 +6,7 @@ const cors = require("cors");
 const { logger } = require("./middleware/logger");
 const errLogger = require("./middleware/errLogger");
 const cookieParser = require("cookie-parser");
-const corsOptions = require("./config/corsOptions");
+// const corsOptions = require("./config/corsOptions");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
 const { logEvents } = require("./middleware/logger");
@@ -19,25 +19,13 @@ connectDB();
 app.use(logger);
 
 //cross origin resource sharing
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  next();
-});
 // app.use(cors({ credentials: true }));
-// app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
-
 app.use(cookieParser());
 
 app.use("/", express.static(path.join(__dirname, "public")));
@@ -48,7 +36,6 @@ app.use("/", require("./Routes/root"));
 app.use("/users", require("./Routes/userRoutes"));
 app.use("/users/profile", require("./Routes/profileRoute"));
 app.use("/books", require("./Routes/booksRoutes"));
-
 app.use("/register", require("./Routes/register"));
 app.use("/auth", require("./Routes/Authenticate"));
 app.use("/sales", require("./Routes/salesRoute"));

@@ -81,3 +81,5 @@
 17-05-23	00:36:07	a0dc394a-69d9-4369-ac48-88392007ac33	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Book"	GET	undefined
 17-05-23	02:26:47	ec4ab1a4-71d2-4177-8d02-2c4772e2f149	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
 17-05-23	02:30:51	19c21022-b5c2-454a-8227-471a4bbcf829	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	02:48:16	4bb0cc03-8fe6-4cf6-b12c-25f9d080ee36	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	04:00:00	43aa93a2-8493-4f1b-b854-e87c541ec523	ValidationError: Book validation failed: uploadedBy: Cast to ObjectId failed for value "undefined" (type string) at path "uploadedBy" because of "BSONError"	POST	http://localhost:3000

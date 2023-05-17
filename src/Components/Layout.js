@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import AuthenticateUser from "./AuthenticateUser";
+import Notification from "../Notification";
 import Sidebar from "./Sidebar";
 import { useState, useEffect } from "react";
 
@@ -8,12 +8,8 @@ import "../styles/layout.css";
 import Navbar from "./Navbar";
 
 const Layout = () => {
-  const [name, setName] = useState("");
-  const [passwd, setPasswd] = useState("");
-  useEffect(() => {}, [name, passwd]);
   return (
     <>
-      {" "}
       <div>
         <Navbar />
       </div>
@@ -27,6 +23,7 @@ const Layout = () => {
           </main>
           <div className="right-layout">
             We will have some notification in here
+            <Notification />
           </div>
         </div>
       </div>

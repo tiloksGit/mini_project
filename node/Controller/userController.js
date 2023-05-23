@@ -7,7 +7,7 @@ const User = require("../models/User");
 const getAllUsers = asyncHandler(async (req, res) => {
   const { username } = req.body;
   if (!username) {
-    return res.status(404).json({ message: username });
+    return res.status(404).json({ message: "all fields are required" });
   }
   const users = await User.findOne({ username }).lean();
   if (!users) {

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import LoginContext from "../../LoginContext";
+import dataContext from "../../dataContext";
 
 const Upload = () => {
-  const { name, id, accessToken } = useContext(LoginContext);
+  const { userName, id, accessToken } = useContext(dataContext);
   const [bookname, setBookname] = useState("");
   const [author, setAuthor] = useState("");
   const [expecPrice, setExpecPrice] = useState("");
@@ -10,10 +10,11 @@ const Upload = () => {
   const [branch, setBranch] = useState("");
   const [img, setImg] = useState("");
   const options = ["CSE", "EE", "ME", "IE", "CE"];
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     try {
       const validUser = await fetch("http://localhost:4000/users/profile", {
         method: "POST",
@@ -21,7 +22,7 @@ const Upload = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
         },
-        body: JSON.stringify({ username: name }),
+        body: JSON.stringify({ username: userName }),
       });
       if (validUser.status === 200) {
         const formData = new FormData();
@@ -38,7 +39,7 @@ const Upload = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-
+        setIsLoading(false);
         const responseData = await response.json();
         if (response) {
           alert(responseData.message);
@@ -51,83 +52,82 @@ const Upload = () => {
     }
   };
 
+  const load = <>Loading...</>;
+
   return (
     <>
-      <div className="register-container">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="name">Title of the Book : </label>
-          <input
-            type="text"
-            placeholder="Book name"
-            id="name"
-            required
-            name="name"
-            value={bookname}
-            onChange={(e) => setBookname(e.target.value)}
-          />
-          <label htmlFor="name">Author of the book : </label>
-          <input
-            type="text"
-            placeholder="Author"
-            id="name"
-            required
-            name="name"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-          />
-          <label htmlFor="branch">Branch :</label>
-          <input
-            list="options"
-            placeholder="Branch"
-            required
-            id="branch"
-            onSelect={(e) => setBranch(e.target.value)}
-          />
-          <datalist id="options">
-            {options.map((option) => (
-              <option key={option} value={option} />
-            ))}
-          </datalist>
-          <label htmlFor="img">Upload cover page of the book:</label>
-          <input
-            className="img-upload"
-            type="file"
-            required
-            id="img"
-            onChange={(e) => {
-              setImg(e.target.files[0]);
-            }}
-          />
-          <label htmlFor="name">set Price for the book : </label>
-          <input
-            type="text"
-            placeholder="in Rs."
-            id="name"
-            required
-            name="name"
-            value={expecPrice}
-            onChange={(e) => setExpecPrice(e.target.value)}
-          />
-          {/* <label htmlFor="email">Email :</label>
-          <input
-            type="email"
-            required
-            id="email"
-            placeholder="email@example.com"
-          /> */}
-          <label htmlFor="password">Password :</label>
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            id="password"
-            onChange={(e) => setPasswd(e.target.value)}
-          />
-          <button className="submit-btn" type="submit">
-            Submit
-          </button>
-        </form>
-      </div>
+      {isLoading ? (
+        load
+      ) : (
+        <div className="register-container">
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <label htmlFor="name">Title of the Book : </label>
+            <input
+              type="text"
+              placeholder="Book name"
+              id="name"
+              required
+              name="name"
+              value={bookname}
+              onChange={(e) => setBookname(e.target.value)}
+            />
+            <label htmlFor="author">Author of the book : </label>
+            <input
+              type="text"
+              placeholder="Author"
+              id="author"
+              required
+              name="author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+            />
+            <label htmlFor="branch">Branch :</label>
+            <input
+              list="options"
+              placeholder="Branch"
+              required
+              id="branch"
+              onSelect={(e) => setBranch(e.target.value)}
+            />
+            <datalist id="options">
+              {options.map((option) => (
+                <option key={option} value={option} />
+              ))}
+            </datalist>
+            <label htmlFor="img">Upload cover page of the book:</label>
+            <input
+              className="img-upload"
+              type="file"
+              required
+              id="img"
+              onChange={(e) => {
+                setImg(e.target.files[0]);
+              }}
+            />
+            <label htmlFor="price">set Price for the book : </label>
+            <input
+              type="text"
+              placeholder="in Rs."
+              id="price"
+              required
+              name="price"
+              value={expecPrice}
+              onChange={(e) => setExpecPrice(e.target.value)}
+            />
+            <label htmlFor="password">Password :</label>
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              id="password"
+              onChange={(e) => setPasswd(e.target.value)}
+            />
+            <button className="submit-btn" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
     </>
   );
 };

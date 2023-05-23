@@ -32,7 +32,8 @@ body {
 .right-layout {
   padding: 22px 12px;
   width: 300px;
-  height: 100%;
+  height: 78.5%;
+  margin-bottom: 150px;
   /* border-left: 1px solid rgb(196, 175, 141); */
   display: flex;
   flex-direction: column;

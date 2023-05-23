@@ -83,3 +83,25 @@
 17-05-23	02:30:51	19c21022-b5c2-454a-8227-471a4bbcf829	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
 17-05-23	02:48:16	4bb0cc03-8fe6-4cf6-b12c-25f9d080ee36	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
 17-05-23	04:00:00	43aa93a2-8493-4f1b-b854-e87c541ec523	ValidationError: Book validation failed: uploadedBy: Cast to ObjectId failed for value "undefined" (type string) at path "uploadedBy" because of "BSONError"	POST	http://localhost:3000
+17-05-23	10:05:50	772ab7c3-b57b-4665-b1a7-e5639d45b735	SyntaxError: Unexpected end of JSON input	DELETE	undefined
+17-05-23	13:09:05	1277f6ba-8b08-493d-88ac-28cbcfb8a71d	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	13:12:01	fae9eaa5-3829-45db-ada2-41917ca5910b	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	13:12:25	96f807ee-d466-4c93-9598-ddfb96b88277	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	13:28:05	6deb4af4-4447-4d76-987a-611460320c3b	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	13:32:57	12ee7992-bc29-436c-ac0f-67152ab52c2b	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	13:36:04	4bd517b6-4820-48dd-ad00-c3cb34105c98	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	13:37:39	cdfeda2e-3215-4d66-bd1d-bb14b1e40fd3	Error: Cannot set headers after they are sent to the client	POST	http://localhost:3000
+17-05-23	14:04:58	dbe9d859-05a5-4c3b-90b1-691528c57f76	ReferenceError: cookies is not defined	POST	http://localhost:3000
+17-05-23	14:35:09	1be7d4cb-f96a-4073-8869-d13a6fc3387d	SyntaxError: Unexpected token n in JSON at position 0	POST	http://localhost:3000
+17-05-23	15:06:46	039c92db-da5f-4f24-b57d-4fbee6901c96	SyntaxError: Unexpected token n in JSON at position 0	POST	http://localhost:3000
+17-05-23	15:20:06	c100b9df-f6ce-4c57-9ad5-7a49097a66f8	SyntaxError: Unexpected token n in JSON at position 0	POST	http://localhost:3000
+21-05-23	17:53:33	8273afa3-ae33-4bf5-a108-5e887911f346	SyntaxError: Unexpected token n in JSON at position 0	POST	http://localhost:3000
+21-05-23	21:06:00	93831607-2084-4c21-9dfb-5c8e0e02b050	TypeError: path must be absolute or specify root to res.sendFile	POST	http://localhost:3000
+21-05-23	21:06:00	4815a3d4-38a7-4348-9590-54137eb6e12a	TypeError: path must be absolute or specify root to res.sendFile	POST	http://localhost:3000
+21-05-23	21:07:47	a6945a88-c38e-455c-b5cc-a5d028b7a471	TypeError: path is not a function	POST	http://localhost:3000
+21-05-23	21:07:47	f148c37f-9c75-4bb5-9559-97a63e4a7137	TypeError: path is not a function	POST	http://localhost:3000
+22-05-23	00:20:46	83b73d2c-ed5f-4b5b-86b7-8dcff3b5502d	MongoPoolClearedError: Connection pool for ac-b22fm91-shard-00-02.3lfgqkn.mongodb.net:27017 was cleared because another operation failed with: "connection <monitor> to 13.127.231.212:27017 timed out"	GET	http://localhost:3000
+22-05-23	00:21:16	ff34c1fb-7128-4610-b587-1e90f3d0bbfb	MongoServerSelectionError: connection <monitor> to 13.233.5.254:27017 timed out	GET	http://localhost:3000
+22-05-23	00:21:16	dae342b3-8dce-4169-8dc1-55280e6983ac	MongoServerSelectionError: connection <monitor> to 13.233.5.254:27017 timed out	POST	http://localhost:3000
+22-05-23	00:21:16	6e3126ab-604a-4fc1-9e3e-b7d38ff60622	MongoServerSelectionError: connection <monitor> to 13.233.5.254:27017 timed out	POST	http://localhost:3000
+22-05-23	00:21:25	22fc0e11-e9d2-4110-92b8-69f6378f06e5	MongoServerSelectionError: connection timed out	POST	http://localhost:3000

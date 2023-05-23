@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/book.css";
 
 const Book = ({ bookName, author, src }) => {
@@ -8,7 +9,7 @@ const Book = ({ bookName, author, src }) => {
         <li>BookName: {bookName}</li>
         <li>Author: {author}</li>
       </ul>
-      <button>Buy</button>
+      <Link to="/exclusive/buy">Buy</Link>
     </div>
   );
 };

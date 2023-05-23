@@ -2,10 +2,10 @@ import Book from "../Components/Book";
 import "../styles/book.css";
 import "../styles/deptstyle.css";
 import { useContext, useState, useEffect } from "react";
-import BookContext from "../BookContext";
+import dataContext from "../dataContext";
 
 const Ce = () => {
-  const { books } = useContext(BookContext);
+  const { books } = useContext(dataContext);
   const [ceBooks, setCeBooks] = useState("");
   useEffect(() => {
     if (books?.length) {
@@ -24,7 +24,7 @@ const Ce = () => {
                 key={book._id}
                 bookName={book.title}
                 author={book.author}
-                src={`http://localhost:4000/books/${book.imgURL}`}
+                src={book.imgURL}
               />
             </div>
           ))}

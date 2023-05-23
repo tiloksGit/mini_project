@@ -2,10 +2,10 @@ import Book from "../Components/Book";
 import "../styles/book.css";
 import "../styles/deptstyle.css";
 import { useContext, useEffect, useState } from "react";
-import BookContext from "../BookContext";
+import dataContext from "../dataContext";
 
 const Cse = () => {
-  const { books } = useContext(BookContext);
+  const { books } = useContext(dataContext);
   const [eeBooks, setEeBooks] = useState("");
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Cse = () => {
                 key={book._id}
                 bookName={book.title}
                 author={book.author}
-                src={`http://localhost:4000/books/${book.imgURL}`}
+                src={book.imgURL}
               />
             </div>
           ))}

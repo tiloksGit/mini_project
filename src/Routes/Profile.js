@@ -1,23 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import Avatar from "../Components/Avatar";
 import "../styles/profile.css";
-import LoginContext from "../LoginContext";
-import BookContext from "../BookContext";
-
-// userId: "",
-// userName: "",
-// JWT: "",
-// booksOrdered: [],
-// isSeller: false,
-// branch: "",
-// semester: "",
+import dataContext from "../dataContext";
 
 const Profile = () => {
-  const { name, accessToken, id } = useContext(LoginContext);
-  const { books } = useContext(BookContext);
+  const { userName, accessToken, id, books } = useContext(dataContext);
   const [user, setUser] = useState([]);
 
   const [myUploads, setMyUploads] = useState("");
+
+  const handeleRemove = async (book) => {
+    try {
+      const userResponse = await fetch("http://localhost:4000/books", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify({ id: book._id }),
+      });
+
+      const userData = await userResponse.json();
+
+      alert(userData.message);
+    } catch (err) {
+      alert(err.message);
+    }
+  };
 
   useEffect(() => {
     const getUserDetails = async () => {
@@ -30,7 +39,7 @@ const Profile = () => {
               "Content-Type": "application/json",
               Authorization: `Bearer ${accessToken}`,
             },
-            body: JSON.stringify({ username: name }),
+            body: JSON.stringify({ username: userName }),
           }
         );
 
@@ -45,23 +54,19 @@ const Profile = () => {
         alert(err.message);
       }
     };
+    getUserDetails();
+  }, [accessToken]);
+
+  useEffect(() => {
     if (books?.length) {
       const newBook = books.filter((book) => book.uploadedBy === id);
-      console.log(newBook);
       setMyUploads(newBook);
     }
-
-    getUserDetails();
-  }, [accessToken, books]);
-
-  // const imgURL = `http://localhost:4000/users/${user.avatarURL}`;
+  }, [books]);
 
   return (
     <div className="profile-container">
-      <Avatar
-        avatarName={user.username}
-        avatarURL={`http://localhost:4000/users/${user.avatarURL}`}
-      />
+      <Avatar avatarName={user.username} avatarURL={user.avatarURL} />
       <div className="profile-details">
         Branch: {user.branch}
         <br />
@@ -69,16 +74,22 @@ const Profile = () => {
         <br />
         BooksBought: {user.booksCount}
         <h3>My uploads</h3>
-        {myUploads ? (
-          <>
-            {/* {myUploads.map((book) => {
-              <li key={book._id}>
-                Name: {book.title} <br /> Author: {book.author}
-              </li>;
-            })} */}
-          </>
+        {myUploads?.length ? (
+          <div className="book-container">
+            {myUploads.map((book) => (
+              <div key={book._id} className="myUploads">
+                <img src={book.imgURL} height="200" width="200" />
+                <br />
+                Book Title : {book.title} <br /> Author : {book.author}
+                <br />
+                <button onClick={() => handeleRemove(book)}>
+                  Remove from sales option
+                </button>
+              </div>
+            ))}
+          </div>
         ) : (
-          <>Showing error response</>
+          <>No Books uploaded for sale</>
         )}
       </div>
     </div>

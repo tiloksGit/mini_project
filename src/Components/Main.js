@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import LoginContext from "../LoginContext";
+import dataContext from "../dataContext";
 import "../styles/home.css";
 const Main = () => {
-  const { name, accessToken } = useContext(LoginContext);
+  const { userName, accessToken, setMsg } = useContext(dataContext);
 
   const [displayContent, setDisplayContent] = useState("");
   useEffect(() => {
+    setMsg(null);
     const getContent = async () => {
       try {
         const response = await fetch("http://localhost:4000/", {
@@ -29,7 +30,7 @@ const Main = () => {
   }, [accessToken]);
   return (
     <>
-      <p className="log-info">You are Signed In as: {name}</p>
+      <p className="log-info">You are Signed in as: {userName}</p>
       <div dangerouslySetInnerHTML={{ __html: displayContent }} />
     </>
   );

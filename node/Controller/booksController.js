@@ -63,18 +63,18 @@ const postNewBooks = asyncHandler(async (req, res) => {
 const deleteBooks = asyncHandler(async (req, res) => {
   const { id } = req.body;
   if (!id) {
-    return res.status(400).json({ message: "User if required" });
+    return res.status(400).json({ message: "Book id required" });
   }
 
   const book = await Book.findById(id).exec();
 
   if (!book) {
-    return res.status(409).json({ message: "User not found" });
+    return res.status(404).json({ message: "Book not found" });
   }
 
   const result = await book.deleteOne();
 
-  const reply = `Username ${result.title} with ID ${result._id} deleted`;
+  const reply = `Book ${result.title} with ID ${result._id} deleted`;
 
   res.status(200).json({ message: reply });
 });

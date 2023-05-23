@@ -2,10 +2,10 @@ import { useState, useContext, useEffect } from "react";
 import "../styles/deptstyle.css";
 import Book from "../Components/Book";
 import "../styles/book.css";
-import BookContext from "../BookContext";
+import dataContext from "../dataContext";
 
 const Ee = () => {
-  const { books } = useContext(BookContext);
+  const { books } = useContext(dataContext);
   const [eeBooks, setEeBooks] = useState("");
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const Ee = () => {
       const newBook = books.filter((book) => book.branch === "EE");
       setEeBooks(newBook);
     }
-  }, [books]);
+  }, []);
 
   return (
     <div className="page">
@@ -26,7 +26,7 @@ const Ee = () => {
                 key={book._id}
                 bookName={book.title}
                 author={book.author}
-                src={`http://localhost:4000/books/${book.imgURL}`}
+                src={book.imgURL}
               />
             </div>
           ))}

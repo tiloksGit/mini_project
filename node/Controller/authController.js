@@ -48,21 +48,27 @@ const handleAuth = asyncHandler(async (req, res) => {
     sameSite: "None",
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
-  res.status(200).json({ accessToken, id: user._id, username: user.username });
+  res.status(200).json({
+    accessToken,
+    id: user._id,
+    username: user.username,
+    refreshToken: process.env.REFRESH_TOKEN_SECRET,
+  });
 });
 
 const refresh = asyncHandler(async (req, res) => {
-  const cookies = req.cookies;
+  const cookies = req.headers.token;
+  console.log(cookies);
   if (!cookies?.jwt) return res.status(401).json({ message: "unauthorized" });
 
-  const refreshToken = cookies.jwt;
-
+  const refreshToken = cookies;
+  console.log(refreshToken);
   jwt.verify(
     refreshToken,
     process.env.REFRESH_TOKEN_SECRET,
     asyncHandler(async (err, decoded) => {
       if (err) return err.status(403).json({ message: "forbidden" });
-      const user = await User.findOne({ username: decoded.username });
+      const user = await User.findOne({ username: req.username });
 
       if (!user) return res.status(401).json({ message: "Unauthorized" });
 
@@ -74,7 +80,7 @@ const refresh = asyncHandler(async (req, res) => {
           },
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1d" }
+        { expiresIn: "300s" }
       );
 
       res.json({ accessToken });
@@ -82,11 +88,22 @@ const refresh = asyncHandler(async (req, res) => {
   );
 });
 
-const logout = asyncHandler(async (req, res) => {
-  const cookies = req.cookies;
-  if (!cookies?.jwt) return res.sendStatus(204).json("jwt cookie not found");
-  res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
-  res.json({ message: "You are logged out" });
+// const logout = asyncHandler(async (req, res) => {
+//   const cookies = req.cookies;
+//   console.log(req.cookies);
+//   if (!cookies?.jwt)
+//     return res.sendStatus(400).json({ message: "jwt cookie not found" });
+//   res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
+//   res.json({ message: "You are logged out" });
+// });
+
+const logout = asyncHandler((req, res) => {
+  const headers = req.headers.token;
+  if (!headers) {
+    return res.status(204); // Send a non-JSON response
+  }
+  res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: false });
+  res.status(200).json({ message: "You are logged out" });
 });
 
 module.exports = { handleAuth, refresh, logout };

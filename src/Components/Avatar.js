@@ -8,12 +8,14 @@ const Avatar = ({ avatarName, avatarURL }) => {
       <div className="avatar-img">
         <img
           src={avatarURL}
-          alt={avatarName ? avatarName.charAt(0) : "could not load image"}
+          alt={avatarName ? avatarName.charAt(0) : "Could not load image"}
           height="150px"
           width="150px"
         />
       </div>
-      <div className="avatar-details">{`${name}`}</div>
+      <div className="avatar-details">
+        <b>{`${name}`}</b>
+      </div>
     </div>
   );
 };

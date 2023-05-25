@@ -21,7 +21,8 @@ const Ce = () => {
           {ceBooks.map((book) => (
             <div key={book._id} className="book">
               <Book
-                key={book._id}
+                id={book._id}
+                object={book}
                 bookName={book.title}
                 author={book.author}
                 src={book.imgURL}

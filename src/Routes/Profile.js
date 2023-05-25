@@ -2,12 +2,36 @@ import React, { useContext, useEffect, useState } from "react";
 import Avatar from "../Components/Avatar";
 import "../styles/profile.css";
 import dataContext from "../dataContext";
+import apiResponse from "../app/api/apiSlice";
 
 const Profile = () => {
-  const { userName, accessToken, id, books } = useContext(dataContext);
-  const [user, setUser] = useState([]);
+  const { setUser, userName, accessToken, id, books, handleLogout } =
+    useContext(dataContext);
+  let user = JSON.parse(localStorage.getItem("user"));
 
   const [myUploads, setMyUploads] = useState("");
+
+  const handeDelete = async () => {
+    alert(
+      "you are sure you want to delete your account.. your data will be removed from the database"
+    );
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ username: userName }),
+    };
+    console.log(userName);
+    const response = await apiResponse("http://localhost:4000/users", options);
+    if (response.ok) {
+      handleLogout();
+      alert("User deleted");
+    } else {
+      console.log("error");
+    }
+  };
 
   const handeleRemove = async (book) => {
     try {
@@ -28,34 +52,34 @@ const Profile = () => {
     }
   };
 
-  useEffect(() => {
-    const getUserDetails = async () => {
-      try {
-        const userResponse = await fetch(
-          "http://localhost:4000/users/profile",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-            body: JSON.stringify({ username: userName }),
-          }
-        );
+  // useEffect(() => {
+  //   const getUserDetails = async () => {
+  //     try {
+  //       const userResponse = await fetch(
+  //         "http://localhost:4000/users/profile",
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${accessToken}`,
+  //           },
+  //           body: JSON.stringify({ username: userName }),
+  //         }
+  //       );
 
-        const userData = await userResponse.json();
+  //       const userData = await userResponse.json();
 
-        if (userResponse.status === 200) {
-          setUser(userData);
-        } else {
-          alert(userData.message);
-        }
-      } catch (err) {
-        alert(err.message);
-      }
-    };
-    getUserDetails();
-  }, [accessToken]);
+  //       if (userResponse.status === 200) {
+  //         setUser(userData);
+  //       } else {
+  //         alert(userData.message);
+  //       }
+  //     } catch (err) {
+  //       alert(err.message);
+  //     }
+  //   };
+  //   getUserDetails();
+  // }, [accessToken]);
 
   useEffect(() => {
     if (books?.length) {
@@ -63,6 +87,16 @@ const Profile = () => {
       setMyUploads(newBook);
     }
   }, [books]);
+
+  let thisBook;
+  // const thisBookHandle = async (user) => {
+  //   {
+  //     thisBook = books?.length
+  //       ? books.filter((book) => book._id === user.bookId)
+  //       : "";
+  //     console.log(thisBook);
+  //   }
+  // };
 
   return (
     <div className="profile-container">
@@ -73,7 +107,23 @@ const Profile = () => {
         Semester: {user.semester}
         <br />
         BooksBought: {user.booksCount}
+        <br />
+        My transactions: <br />
+        {user.booksBought?.length
+          ? user.booksBought.map((user, i) => (
+              <div key={i} className="myUploads">
+                {/* {thisBookHandle(user)} */}
+                {/* <img src={user.imgURL} alt="Book" height="200" width="200" /> */}
+                {`${i + 1} :`}Book Id : {user.bookId} <br />
+              </div>
+            ))
+          : ""}
+        <br />
+        Email id: {user.emailID}
         <h3>My uploads</h3>
+        <div>
+          <button onClick={handeDelete}>delete user</button>
+        </div>
         {myUploads?.length ? (
           <div className="book-container">
             {myUploads.map((book) => (

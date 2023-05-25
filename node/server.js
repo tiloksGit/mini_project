@@ -38,7 +38,8 @@ app.use("/users/profile", require("./Routes/profileRoute"));
 app.use("/books", require("./Routes/booksRoutes"));
 app.use("/register", require("./Routes/register"));
 app.use("/auth", require("./Routes/Authenticate"));
-app.use("/sales", require("./Routes/salesRoute"));
+// app.use("/sales", require("./Routes/salesRoute"));
+app.use("/sendmail", require("./Routes/mailRoute"));
 
 app.use("*", (req, res) => {
   res.status(404);

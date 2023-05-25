@@ -11,13 +11,16 @@ const Register = () => {
   const [cnfPasswd, setCnfPasswd] = useState("");
   const [email, setEmail] = useState("");
   const [allOk, setAllOk] = useState(false);
+  const [passwdErr, setPasswdErr] = useState("");
 
   const [isRegistered, setIsRegistered] = useState(false);
   const [msg, setMsg] = useState("");
   const options = ["CSE", "EE", "ME", "IE", "CE"];
   const semesterOptions = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     if (allOk) {
       const formData = new FormData();
@@ -25,7 +28,7 @@ const Register = () => {
       formData.append("branch", branch);
       formData.append("password", cnfPasswd);
       formData.append("semester", semester);
-      formData.append("email", email);
+      formData.append("emailID", email);
       if (img) formData.append("img", img);
       console.log(formData);
 
@@ -66,7 +69,10 @@ const Register = () => {
   const handlePasswd = (e) => {
     if (e.target.value === passwd) {
       setCnfPasswd(e.target.value);
+      setPasswdErr("");
       setAllOk(true);
+    } else {
+      setPasswdErr("(Password Mismatch)");
     }
   };
 
@@ -147,7 +153,9 @@ const Register = () => {
             value={passwd}
             onChange={(e) => setPasswd(e.target.value)}
           />
-          <label htmlFor="cnf-passwd">Confirm password :</label>
+          <label htmlFor="cnf-passwd">
+            Confirm password : {passwdErr ? passwdErr : ""}
+          </label>
           <input
             type="password"
             required

@@ -2,18 +2,13 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const createNewUser = asyncHandler(async (req, res) => {
-  const body = req.body;
-  console.log(body);
-  console.log(req.file);
-  res.status(200);
-
-  const { username, password, branch, semester } = req.body;
+  const { username, password, branch, semester, emailID } = req.body;
   let avatarURL = "";
   if (req.file) {
     avatarURL = req.file.path;
   }
   //confirm data
-  if (!username || !password || !branch || !semester) {
+  if (!username || !password || !branch || !semester || !emailID) {
     return res.status(400).json({ message: "All fields are required" });
   }
   //check for duplicates
@@ -29,6 +24,7 @@ const createNewUser = asyncHandler(async (req, res) => {
     username,
     password: hashedPasswd,
     avatarURL,
+    emailID,
     branch,
     semester,
   };

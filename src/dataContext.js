@@ -13,6 +13,32 @@ export const DataProvider = ({ children }) => {
   const [passwd, setPasswd] = useState("");
   const [msg, setMsg] = useState(null);
   const [errMsg, setErrMsg] = useState(null);
+  const [user, setUser] = useState([]);
+
+  const handleLogout = async () => {
+    console.log(123);
+    try {
+      const response = await fetch("http://localhost:4000/auth/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          token: localStorage.getItem("jwt"),
+        },
+      });
+      const responseData = await response.json();
+      // console.log(responseData.message);
+      if (responseData) {
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("name");
+        localStorage.removeItem("id");
+        localStorage.removeItem("user");
+
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -81,6 +107,9 @@ export const DataProvider = ({ children }) => {
         setErrMsg,
         setMsg,
         msg,
+        handleLogout,
+        user,
+        setUser,
       }}
     >
       {children}

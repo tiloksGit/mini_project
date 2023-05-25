@@ -49,7 +49,6 @@ const postNewBooks = asyncHandler(async (req, res) => {
     expecPrice,
   };
 
-  //create user
   const book = await Book.create(newBook);
 
   if (book) {

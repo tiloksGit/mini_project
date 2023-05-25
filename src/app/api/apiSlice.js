@@ -1,7 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+const apiResponse = async (url, options) => {
+  try {
+    const response = await fetch(url, options);
+    return response;
+  } catch (err) {
+    alert(err.message);
+  }
+};
 
-export const apiSlice = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4000" }),
-  tagTypes: ["Note", "User"],
-  endpoints: (builder) => ({}),
-});
+export default apiResponse;

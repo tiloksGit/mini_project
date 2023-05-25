@@ -17,41 +17,42 @@ const getAllUsers = asyncHandler(async (req, res) => {
 });
 
 //post
-const createNewUser = asyncHandler(async (req, res) => {
-  const { username, password, branch, avatarURL, semester } = req.body;
+// const createNewUser = asyncHandler(async (req, res) => {
+//   const { username, password, branch, avatarURL, semester, emailID } = req.body;
+//   console.log(emailID);
+//   //confirm data
+//   if (!username || !password || !branch || !semester || !emailID) {
+//     return res.status(400).json({ message: "All fields are required" });
+//   }
 
-  //confirm data
-  if (!username || !password || !branch || !semester) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+//   //check for duplicates
 
-  //check for duplicates
+//   const duplicate = await User.findOne({ username }).lean().exec();
 
-  const duplicate = await User.findOne({ username }).lean().exec();
+//   if (duplicate) {
+//     return res.status(409).json({ message: "Duplicate found" });
+//   }
 
-  if (duplicate) {
-    return res.status(409).json({ message: "Duplicate found" });
-  }
+//   const hashedPasswd = await bcrypt.hash(password, 10);
+//   //Store the newUser
+//   const newUser = {
+//     username,
+//     password: hashedPasswd,
+//     avatarURL,
+//     branch,
+//     emailID,
+//     semester,
+//   };
 
-  const hashedPasswd = await bcrypt.hash(password, 10);
-  //Store the newUser
-  const newUser = {
-    username,
-    password: hashedPasswd,
-    avatarURL,
-    branch,
-    semester,
-  };
+//   //create user
+//   const user = await User.create(newUser);
 
-  //create user
-  const user = await User.create(newUser);
-
-  if (user) {
-    res.status(201).json({ message: "new user created" });
-  } else {
-    res.status(400).json({ message: "Invalid data recieved" });
-  }
-});
+//   if (user) {
+//     res.status(201).json({ message: "new user created" });
+//   } else {
+//     res.status(400).json({ message: "Invalid data recieved" });
+//   }
+// });
 
 //patch
 const updateUser = asyncHandler(async (req, res) => {
@@ -93,7 +94,7 @@ const deleteUsers = asyncHandler(async (req, res) => {
   const user = await User.findOne({ username }).exec();
 
   if (!user) {
-    return res.status(409).json({ message: "User not found" });
+    return res.status(404).json({ message: "User not found" });
   }
 
   const result = await user.deleteOne();
@@ -103,4 +104,4 @@ const deleteUsers = asyncHandler(async (req, res) => {
   res.status(200).json({ message: reply });
 });
 
-module.exports = { getAllUsers, createNewUser, updateUser, deleteUsers };
+module.exports = { getAllUsers, updateUser, deleteUsers };

@@ -9,8 +9,8 @@ const Avatar = ({ avatarName, avatarURL }) => {
         <img
           src={avatarURL}
           alt={avatarName ? avatarName.charAt(0) : "Could not load image"}
-          height="150px"
-          width="150px"
+          height="300px"
+          width="300px"
         />
       </div>
       <div className="avatar-details">

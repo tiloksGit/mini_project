@@ -18,24 +18,49 @@
   gap: 20px;
 }
 
-.NavBody-parent ul li {
+.list {
   text-decoration: none;
   list-style-type: none;
   padding: 20px 40px;
   margin: 0 10px;
   background-color: aliceblue;
   border-radius: 10px;
-  transition: transform 0.2s ease-in-out; /* add transition property */
+  transition: transform 0.2s ease-in-out;
 }
 
-.NavBody-parent li:hover {
+.list:hover {
   background-color: yellow;
   transition: 0.2s;
   cursor: pointer;
   transform: scale(1.05); /* increase scale on hover */
 }
+/* /* .NavBody-parent ul li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 20px 40px;
+  margin: 0 10px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out; /* add transition property 
+} */
 
-a:-webkit-any-link {
+/* .NavBody-parent list:hover {
+  background-color: yellow;
+  transition: 0.2s;
+  cursor: pointer;
+  transform: scale(1.05); /* increase scale on hover 
+} */
+*/ a:-webkit-any-link {
   text-decoration: none;
   color: rgb(56, 56, 56);
+}
+
+.active {
+  background-color: red;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 20px 40px;
+  margin: 0 10px;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
 }

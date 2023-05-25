@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema(
       select: false,
     },
     avatarURL: { type: String },
+    emailID: {
+      type: String,
+      required: true,
+    },
     branch: {
       type: String,
       required: true,
@@ -21,14 +25,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // booksBought: [
-    //   {
-    //     bookId: {
-    //       type: mongoose.Schema.Types.ObjectId,
-    //       ref: "Book",
-    //     },
-    //   },
-    // ],
+    booksBought: [
+      {
+        bookId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Book",
+        },
+      },
+    ],
     booksCount: { type: Number, default: 0 },
   },
 

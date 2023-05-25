@@ -15,14 +15,14 @@ const AuthenticateUser = () => {
     name,
     setName,
   } = useContext(dataContext);
-  const [shouldRedirect, setShouldRedirect] = useState(false);
+  // const [shouldRedirect, setShouldRedirect] = useState(false);
   const navigate = useNavigate();
 
   const handleAfterLogin = () => {
-    setErrMsg();
+    setErrMsg("");
     setName("");
     setPasswd("");
-    setShouldRedirect(false);
+    setPasswd("");
   };
 
   useEffect(() => {

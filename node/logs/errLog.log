@@ -105,3 +105,21 @@
 22-05-23	00:21:16	dae342b3-8dce-4169-8dc1-55280e6983ac	MongoServerSelectionError: connection <monitor> to 13.233.5.254:27017 timed out	POST	http://localhost:3000
 22-05-23	00:21:16	6e3126ab-604a-4fc1-9e3e-b7d38ff60622	MongoServerSelectionError: connection <monitor> to 13.233.5.254:27017 timed out	POST	http://localhost:3000
 22-05-23	00:21:25	22fc0e11-e9d2-4110-92b8-69f6378f06e5	MongoServerSelectionError: connection timed out	POST	http://localhost:3000
+23-05-23	17:22:49	5411c9e0-5b32-4f03-adb1-09e406676b4b	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+23-05-23	17:23:21	aa2d3188-b5db-4c9a-8464-e0e8063460bc	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+23-05-23	17:23:22	ec5f2b86-121c-4771-a495-c7b67f6bab60	Too Many Requests: Too many login attempts from this IP, please try again after a 60 second pause	POST	/	http://localhost:3000
+25-05-23	01:02:54	e1ded823-68f2-4efb-a035-92d864bec861	ValidationError: User validation failed: emailID: Path `emailID` is required.	POST	http://localhost:3000
+25-05-23	01:05:05	d9b6b2e3-fdff-49c8-a1b4-62a8b17b2f48	ValidationError: User validation failed: emailID: Path `emailID` is required.	POST	http://localhost:3000
+25-05-23	01:06:28	ed90fe5a-dc5d-4e18-a0c1-82d1aeeb4640	ValidationError: User validation failed: emailID: Path `emailID` is required.	POST	http://localhost:3000
+25-05-23	01:51:35	52757e42-aef0-4e04-acf0-def8f70d90be	TypeError: user.save is not a function	POST	undefined
+25-05-23	01:53:02	23b6692b-16b7-4a37-99b2-1f32e080d751	TypeError: user.save is not a function	POST	undefined
+25-05-23	01:53:31	3f8ad45f-1e11-441d-8a19-2cb20c8f57aa	TypeError: book.save is not a function	POST	undefined
+25-05-23	01:59:53	c8bfa57b-edbe-48ed-8102-bd8c1b186d4f	TypeError: Cannot read properties of null (reading 'emailId')	POST	undefined
+25-05-23	02:00:43	5e17e610-6085-4f19-b2c1-517e75096d22	TypeError: Cannot read properties of null (reading 'emailId')	POST	undefined
+25-05-23	02:02:00	ab6d140c-bb96-4589-a6c4-d0abc841589b	TypeError: Cannot read properties of null (reading 'emailId')	POST	undefined
+25-05-23	02:03:16	97693ae3-7f67-4889-8052-a54bc9569375	TypeError: Cannot read properties of null (reading 'emailId')	POST	undefined
+25-05-23	02:21:10	da886bd8-824a-4a77-866d-978cafa23576	TypeError: user.save is not a function	POST	undefined
+25-05-23	02:22:33	e6d468cc-4073-476d-aa73-93ad5cd039ce	TypeError: user.save is not a function	POST	undefined
+25-05-23	12:29:07	6976dd92-58ad-45cb-a1fe-edd789655345	MongoServerSelectionError: getaddrinfo EAI_AGAIN ac-b22fm91-shard-00-00.3lfgqkn.mongodb.net	GET	http://localhost:3000
+25-05-23	12:29:27	9365382e-1549-4712-a621-eca5b5b95065	MongoServerSelectionError: getaddrinfo EAI_AGAIN ac-b22fm91-shard-00-00.3lfgqkn.mongodb.net	GET	http://localhost:3000
+25-05-23	13:23:43	85c3365e-e08f-4330-bff7-c5ed8db5fc1a	TypeError: Cannot read properties of null (reading 'emailID')	POST	http://localhost:3000

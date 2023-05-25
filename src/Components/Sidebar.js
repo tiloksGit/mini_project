@@ -1,30 +1,51 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/sidebar.css";
 const Sidebar = () => {
   return (
     <div className="NavBody-parent">
       <ul>
-        <Link to="/exclusive/">
-          <li>Home</li>
-        </Link>
-        <Link to="/exclusive/cse">
-          <li>Computer Science Engineering</li>
-        </Link>
-        <Link to="/exclusive/ee">
-          <li>Electrical Engineering</li>
-        </Link>
-        <Link to="/exclusive/me">
-          <li>Mechanical Engineering</li>
-        </Link>
-        <Link to="/exclusive/ie">
-          <li>Instrumentation Engineering</li>
-        </Link>
-        <Link to="/exclusive/ce">
-          <li>Civil Engineering</li>
-        </Link>
-        <Link to="/exclusive/upload/new-book">
-          <li>upload book to sell</li>
-        </Link>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/cse"
+        >
+          Computer Science Engineering
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/ee"
+        >
+          Electrical Engineering
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/me"
+        >
+          Mechanical Engineering
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/ie"
+        >
+          Instrumentation Engineering
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/ce"
+        >
+          Civil Engineering
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "list")}
+          to="/exclusive/upload/new-book"
+        >
+          upload book to sell
+        </NavLink>
       </ul>
     </div>
   );

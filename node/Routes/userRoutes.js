@@ -7,7 +7,6 @@ router.use(verifyJWT);
 
 router
   .route("/")
-  .post(userController.createNewUser)
   .patch(userController.updateUser)
   .delete(userController.deleteUsers);
 

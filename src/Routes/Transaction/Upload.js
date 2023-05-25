@@ -11,10 +11,17 @@ const Upload = () => {
   const [img, setImg] = useState("");
   const options = ["CSE", "EE", "ME", "IE", "CE"];
   const [isLoading, setIsLoading] = useState(false);
-
+  const [err, setErr] = useState();
+  let user = JSON.parse(localStorage.getItem("user"));
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (passwd !== user.emailID) {
+      setErr("email doesn't match");
+      return;
+    }
     setIsLoading(true);
+
     try {
       const validUser = await fetch("http://localhost:4000/users/profile", {
         method: "POST",
@@ -49,6 +56,13 @@ const Upload = () => {
       }
     } catch (err) {
       alert(err.message);
+    } finally {
+      setBookname("");
+      setExpecPrice("");
+      setImg("");
+      setAuthor("");
+      setBranch("");
+      setPasswd("");
     }
   };
 
@@ -114,10 +128,12 @@ const Upload = () => {
               value={expecPrice}
               onChange={(e) => setExpecPrice(e.target.value)}
             />
-            <label htmlFor="password">Password :</label>
+            <label htmlFor="password">
+              Confirm your email :{err ? err : ""}
+            </label>
             <input
-              type="password"
-              placeholder="Password"
+              type="email"
+              placeholder="Email"
               required
               id="password"
               onChange={(e) => setPasswd(e.target.value)}

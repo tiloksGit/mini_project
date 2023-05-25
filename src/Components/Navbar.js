@@ -15,7 +15,9 @@ const Navbar = () => {
       </div>
       <Link to="profile">My Profile</Link>
       <p>
-        <button onClick={handleLogout}>logout</button>
+        <button className="btn" onClick={handleLogout}>
+          Logout
+        </button>
       </p>
     </nav>
   );

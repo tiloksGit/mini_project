@@ -14,17 +14,21 @@ export const DataProvider = ({ children }) => {
   const [msg, setMsg] = useState(null);
   const [errMsg, setErrMsg] = useState(null);
   const [user, setUser] = useState([]);
+  const [activeSales, setActiveSales] = useState();
 
   const handleLogout = async () => {
     console.log(123);
     try {
-      const response = await fetch("http://localhost:4000/auth/logout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: localStorage.getItem("jwt"),
-        },
-      });
+      const response = await fetch(
+        "https://mini-project-backend-4ylv.onrender.com/auth/logout",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: localStorage.getItem("jwt"),
+          },
+        }
+      );
       const responseData = await response.json();
       // console.log(responseData.message);
       if (responseData) {
@@ -43,13 +47,16 @@ export const DataProvider = ({ children }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username: name, password: passwd }),
-      });
+      const response = await fetch(
+        "https://mini-project-backend-4ylv.onrender.com/auth",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: name, password: passwd }),
+        }
+      );
 
       const responseData = await response.json();
       if (response.status === 200) {
@@ -73,9 +80,12 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const getBooks = async () => {
       try {
-        const response = await fetch("http://localhost:4000/books", {
-          method: "GET",
-        });
+        const response = await fetch(
+          "https://mini-project-backend-4ylv.onrender.com/books",
+          {
+            method: "GET",
+          }
+        );
 
         const data = await response.json();
         if (response.status === 200) {
@@ -110,6 +120,8 @@ export const DataProvider = ({ children }) => {
         handleLogout,
         user,
         setUser,
+        setActiveSales,
+        activeSales,
       }}
     >
       {children}

@@ -10,12 +10,15 @@ const Main = () => {
     setMsg(null);
     const getContent = async () => {
       try {
-        const response = await fetch("http://localhost:4000/", {
-          method: "GET",
-          headers: {
-            "Content-Type": "text/html",
-          },
-        });
+        const response = await fetch(
+          "https://mini-project-backend-4ylv.onrender.com/",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "text/html",
+            },
+          }
+        );
 
         if (response.ok) {
           const htmlContent = await response.text();
@@ -33,7 +36,7 @@ const Main = () => {
     const getUserDetails = async () => {
       try {
         const userResponse = await fetch(
-          "http://localhost:4000/users/profile",
+          "https://mini-project-backend-4ylv.onrender.com/users/profile",
           {
             method: "POST",
             headers: {

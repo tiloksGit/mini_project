@@ -14,13 +14,24 @@ const Book = ({ bookName, author, src, object }) => {
   };
 
   return (
-    <div className="">
-      <img src={src} alt={bookName} height="150" width="150" />
+    <div className="book-card">
+      <div className="img-container">
+        <img src={src} alt={bookName} height="250" width="200" />
+      </div>
       <ul>
-        <li> BookId: {object._id}</li>
-        <li>BookName: {bookName}</li>
-        <li>Author: {author}</li>
-        <li>Claimed Price: {object.expecPrice}</li>
+        <li>
+          <span style={{ fontWeight: "bold" }}>BookId</span>: {object._id}
+        </li>
+        <li>
+          <span style={{ fontWeight: "bold" }}>BookName</span>: {bookName}
+        </li>
+        <li>
+          <span style={{ fontWeight: "bold" }}>Author</span>: {author}
+        </li>
+        <li>
+          <span style={{ fontWeight: "bold" }}>Claimed Price</span>:{" "}
+          {object.expecPrice}
+        </li>
       </ul>
       {/* <Link to="/exclusive/buy">Buy</Link> */}
       <button onClick={() => handleClick(object)}>BUY</button>

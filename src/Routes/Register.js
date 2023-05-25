@@ -33,10 +33,13 @@ const Register = () => {
       console.log(formData);
 
       try {
-        const response = await fetch("http://localhost:4000/register/", {
-          method: "POST",
-          body: formData,
-        });
+        const response = await fetch(
+          "https://mini-project-backend-4ylv.onrender.com/register/",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         const responseData = await response.json();
 

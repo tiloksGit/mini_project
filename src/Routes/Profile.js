@@ -5,7 +5,7 @@ import dataContext from "../dataContext";
 import apiResponse from "../app/api/apiSlice";
 
 const Profile = () => {
-  const { setUser, userName, accessToken, id, books, handleLogout } =
+  const { userName, accessToken, id, books, handleLogout } =
     useContext(dataContext);
   let user = JSON.parse(localStorage.getItem("user"));
 
@@ -24,7 +24,10 @@ const Profile = () => {
       body: JSON.stringify({ username: userName }),
     };
     console.log(userName);
-    const response = await apiResponse("http://localhost:4000/users", options);
+    const response = await apiResponse(
+      "https://mini-project-backend-4ylv.onrender.com/users",
+      options
+    );
     if (response.ok) {
       handleLogout();
       alert("User deleted");
@@ -35,14 +38,17 @@ const Profile = () => {
 
   const handeleRemove = async (book) => {
     try {
-      const userResponse = await fetch("http://localhost:4000/books", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({ id: book._id }),
-      });
+      const userResponse = await fetch(
+        "https://mini-project-backend-4ylv.onrender.com/books",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+          body: JSON.stringify({ id: book._id }),
+        }
+      );
 
       const userData = await userResponse.json();
 
@@ -56,7 +62,7 @@ const Profile = () => {
   //   const getUserDetails = async () => {
   //     try {
   //       const userResponse = await fetch(
-  //         "http://localhost:4000/users/profile",
+  //         "https://mini-project-backend-4ylv.onrender.com/users/profile",
   //         {
   //           method: "POST",
   //           headers: {
@@ -121,8 +127,10 @@ const Profile = () => {
         <br />
         Email id: {user.emailID}
         <h3>My uploads</h3>
-        <div>
-          <button onClick={handeDelete}>delete user</button>
+        <div className="delete-user-btn-container">
+          <button className="btn" onClick={handeDelete}>
+            Delete user
+          </button>
         </div>
         {myUploads?.length ? (
           <div className="book-container">
@@ -131,10 +139,12 @@ const Profile = () => {
                 <img src={book.imgURL} height="200" width="200" />
                 <br />
                 Book Title : {book.title} <br /> Author : {book.author}
-                <br />
-                <button onClick={() => handeleRemove(book)}>
-                  Remove from sales option
-                </button>
+                {/* <br /> */}
+                <div className="sales-btn-container">
+                  <button className="btn" onClick={() => handeleRemove(book)}>
+                    Remove from sales option
+                  </button>
+                </div>
               </div>
             ))}
           </div>
